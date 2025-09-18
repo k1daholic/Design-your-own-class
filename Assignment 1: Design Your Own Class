@@ -1,0 +1,37 @@
+# Parent class with a constructor and a common method
+class Vehicle:
+    """
+    A base class representing a vehicle.
+    """
+    def __init__(self, make, model):
+        # Attributes to initialize the object
+        self.make = make
+        self.model = model
+
+    def start_engine(self):
+        """A common method for all vehicles."""
+        return f"The engine of the {self.make} {self.model} starts."
+
+# Child class inheriting from Vehicle
+class Car(Vehicle):
+    """
+    A class representing a car, inheriting from Vehicle.
+    """
+    def __init__(self, make, model, num_doors):
+        # Use a constructor to initialize the object with unique values
+        super().__init__(make, model)  # Call the parent class's constructor
+        self.num_doors = num_doors
+
+    # Activity 2: Polymorphism Challenge - The 'move' method is different for each class
+    def move(self):
+        """A specific implementation of the 'move' method for a car."""
+        return f"The {self.make} {self.model} is driving on the road."
+
+# Another child class for a different type of vehicle
+class Plane(Vehicle):
+    """
+    A class representing a plane, inheriting from Vehicle.
+    """
+    def __init__(self, make, model, max_altitude):
+        super().__init__(make, model)
+        self.max_altitude = max_altitude
