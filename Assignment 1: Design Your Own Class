@@ -1,3 +1,5 @@
+# Assignment 1: Design Your Own Class
+
 # Parent class with a constructor and a common method
 class Vehicle:
     """
@@ -35,3 +37,43 @@ class Plane(Vehicle):
     def __init__(self, make, model, max_altitude):
         super().__init__(make, model)
         self.max_altitude = max_altitude
+
+    # Activity 2: Polymorphism Challenge - The 'move' method is different for each class
+    def move(self):
+        """A specific implementation of the 'move' method for a plane."""
+        return f"The {self.make} {self.model} is flying high in the sky."
+
+# Another child class for a different type of vehicle
+class Boat(Vehicle):
+    """
+    A class representing a boat, inheriting from Vehicle.
+    """
+    def __init__(self, make, model, is_motorized):
+        super().__init__(make, model)
+        self.is_motorized = is_motorized
+
+    # Activity 2: Polymorphism Challenge - The 'move' method is different for each class
+    def move(self):
+        """A specific implementation of the 'move' method for a boat."""
+        return f"The {self.make} {self.model} is sailing on the water."
+
+# --- Example Usage ---
+if __name__ == "__main__":
+    # Create instances of each class
+    my_car = Car(make="Toyota", model="Camry", num_doors=4)
+    my_plane = Plane(make="Boeing", model="747", max_altitude=40000)
+    my_boat = Boat(make="Sea Ray", model="230", is_motorized=True)
+
+    # Demonstrate polymorphism by calling the same 'move' method on different objects
+    print(my_car.move())
+    print(my_plane.move())
+    print(my_boat.move())
+    
+    # Demonstrate the inherited method
+    print("\nInherited method demonstration:")
+    print(my_car.start_engine())
+    print(my_plane.start_engine())
+    print(my_boat.start_engine())
+
+    # Demonstrate accessing a unique attribute
+    print(f"\nThe car has {my_car.num_doors} doors.")
